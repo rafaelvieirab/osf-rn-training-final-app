@@ -91,7 +91,7 @@ Conteúdo do email: `link do projeto no github`
 ## Desafios médios
 
 ### 1. Implementar uma barra de pesquisa para filtrar os filmes
-- [ ] Concluído Total
+- [x] Concluído Total
 - [ ] Concluído Parcial
 - [ ] Não Concluído
 
@@ -99,7 +99,7 @@ Conteúdo do email: `link do projeto no github`
 
 ### 2. Implementar as sessões disponíveis para um determinado filme
 - [ ] Concluído Total
-- [ ] Concluído Parcial
+- [x] Concluído Parcial
 - [ ] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
@@ -109,12 +109,12 @@ Conteúdo do email: `link do projeto no github`
 ### 1. Implementar um sistema de cache de requisições
 - [ ] Concluído Total
 - [ ] Concluído Parcial
-- [ ] Não Concluído
+- [x] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
 
 ### 2. Adicionar o pacote Lint-staged
-- [ ] Concluído Total
+- [x] Concluído Total
 - [ ] Concluído Parcial
 - [ ] Não Concluído
 
@@ -123,7 +123,7 @@ Conteúdo do email: `link do projeto no github`
 ### 3. Adicionar suporte para mais cidades
 - [ ] Concluído Total
 - [ ] Concluído Parcial
-- [ ] Não Concluído
+- [x] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
 

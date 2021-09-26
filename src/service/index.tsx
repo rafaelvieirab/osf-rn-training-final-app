@@ -1,21 +1,32 @@
 import axios from 'axios';
+import { MovieSession } from '../models/MovieSession';
+import { Movie } from '../models/Movie';
+import { City } from '../models/City';
 
-const BASE_URL = 'https://osf-rn-training-bff.herokuapp.com';
+const cityFortalezaId = '36';
 
-interface Trailer {
-  url: string;
-}
-
-export interface Movie {
-  id: string;
-  title: string;
-  contentRating: string;
-  synopsis: string;
-  posterPortraitUrl: string | null;
-  posterHorizontalUrl: string | null;
-  trailers: Trailer[];
-}
+const api = axios.create({
+  baseURL: 'https://osf-rn-training-bff.herokuapp.com',
+});
 
 export const getMovies = () => {
-  return axios.get<Movie[]>(`${BASE_URL}/movies`);
+  return api.get<Movie[]>('movies');
+};
+
+export const getMoviesSessions = (
+  movieId: string,
+  date: string,
+  cityId: string = cityFortalezaId,
+) => {
+  return api.get<MovieSession[]>(
+    `movies/${movieId}/sessions/date/${date}?cityId=${cityId}`,
+  );
+};
+
+export const getCities = () => {
+  return api.get<City[]>('cities');
+};
+
+export const getMoviesByCity = (cityId: string) => {
+  return api.get<City[]>(`movies/city/${cityId}`);
 };
