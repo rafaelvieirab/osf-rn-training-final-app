@@ -1,6 +1,6 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import ErrorContent from '../../components/ErrorContent';
 import Loading from '../../components/Loading';
 import MovieListItem from '../../components/MovieListItem';
@@ -26,6 +26,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+  },
+  msgNotFoundContainer: {
+    backgroundColor: colors.bodyBackgroundColor,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  msgNotFound: {
+    color: colors.white,
+    fontSize: 14,
+    textAlign: 'center',
   },
 });
 
@@ -78,18 +90,26 @@ const Home = ({ navigation }: Props) => {
         </View>
       )}
 
-      <FlatList
-        style={styles.container}
-        numColumns={2}
-        data={filteredMovies}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <MovieListItem
-            movie={item}
-            onPress={() => navigation.push('MovieDetail', { movie: item })}
-          />
-        )}
-      />
+      {filteredMovies.length === 0 ? (
+        <View style={styles.msgNotFoundContainer}>
+          <Text style={styles.msgNotFound}>
+            Não encontramos nenhum filme com o nome: "{movieTitle}"
+          </Text>
+        </View>
+      ) : (
+        <FlatList
+          style={styles.container}
+          numColumns={2}
+          data={filteredMovies}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <MovieListItem
+              movie={item}
+              onPress={() => navigation.push('MovieDetail', { movie: item })}
+            />
+          )}
+        />
+      )}
     </View>
   );
 };
