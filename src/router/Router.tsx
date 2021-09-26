@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Home from '../screens/Home';
 import MovieDetail from '../screens/MovieDetail';
 import { colors } from '../style';
-import { Movie } from '../service';
+import { Movie } from '../models/Movie';
 
 const HomeStack = createNativeStackNavigator();
 
