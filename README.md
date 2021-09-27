@@ -96,6 +96,7 @@ Conteúdo do email: `link do projeto no github`
 - [ ] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
+![desafio1](../osf-rn-training-final-app/assets/desafio_1.gif)
 
 ### 2. Implementar as sessões disponíveis para um determinado filme
 - [ ] Concluído Total
@@ -112,6 +113,7 @@ Conteúdo do email: `link do projeto no github`
 - [ ] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
+![desafio_bonus_1](../osf-rn-training-final-app/assets/desafio_bonus_1.gif)
 
 ### 2. Adicionar o pacote Lint-staged
 - [x] Concluído Total
