@@ -30,3 +30,8 @@ export const getCities = () => {
 export const getMoviesByCity = (cityId: string) => {
   return api.get<City[]>(`movies/city/${cityId}`);
 };
+
+export const getMoviesAsync = async () => {
+  const { data } = await getMovies();
+  return data;
+};
