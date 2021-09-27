@@ -43,7 +43,6 @@ const SessionsSubsequentsDays = ({ moveId }: Props) => {
 
       try {
         const { data } = await getMoviesSessions(moveId, date);
-        console.log(data);
         // setMoviesSessions(data);
       } catch (err) {
         setError(err);

@@ -3,7 +3,7 @@ const AvailablesSessions = () => {};
 export default AvailablesSessions;
 // import React from 'react';
 // import { SectionList, StyleSheet, Text, View } from 'react-native';
-// import { MovieSession, Room } from '../../models/MovieSession';
+// import { MovieSession } from '../../models/MovieSession';
 
 // const styles = StyleSheet.create({
 //   header: {
@@ -11,8 +11,6 @@ export default AvailablesSessions;
 //   },
 //   item: {},
 //   time: {},
-//   labelContainer: {},
-//   labelText: {},
 // });
 
 // type Props = {
@@ -20,29 +18,20 @@ export default AvailablesSessions;
 // };
 
 // const Label = (text: string) => (
-//   <View style={styles.labelContainer}>
-//     <Text style={styles.labelText}>{text}</Text>
-//   </View>
+//   <View style={styles.item}>
+//     <Text style={styles.item}>{text}</Text>
+//     </View>
 // );
 
-// const Item = (rooms: Room[]) => (
-//     {
-//         rooms.map(room => (
-//           <View>
-//             {
-//             room.sessions.map(session => (
-//               <Text>{session.times}: </Text>
-//               <View>
-//                 {
-//                   room.session.types.map(type => <Label text={type.alias}>)
-//                 }
-//               </View>
-//             )
-//         }
-//           </View>
-//         );
-//     }
-// );
+// // const Item = (session: MovieSession) => (
+// //     {{session.rooms.map(room => (
+// //       <View>
+// //         <Text>{room.session.times}</Text>
+// //         {room.session.types.map(type => <Label text={type.alias}>
+// //           )}
+// //       </View>}
+// //     ))
+// // );
 
 // const AvailablesSessions = ({sessions}: Props) => {
 //   return (
