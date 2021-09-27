@@ -121,6 +121,7 @@ Conteúdo do email: `link do projeto no github`
 - [ ] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
+![desafio_bonus_2](../osf-rn-training-final-app/assets/desafio_bonus_2.gif)
 
 ### 3. Adicionar suporte para mais cidades
 - [ ] Concluído Total
