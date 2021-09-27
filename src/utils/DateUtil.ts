@@ -1,5 +1,13 @@
 import daysOfTheWeek from './daysOfTheWeek';
 
+export type DateAndWeekdays = {
+  dayIndex: number;
+  date: string;
+  weekday: string;
+};
+
+const dayInMilliseconds = 86400000;
+
 class DateUtil {
   static getSubsequentDays() {
     let dayIndex = new Date().getDay();
@@ -40,19 +48,37 @@ class DateUtil {
     return date.substring(0, 10);
   }
 
-  static getDate() {
-    const today = new Date();
-    const fullDate = new Date(today).toJSON();
+  static toDateStringFormatRFC(date: Date) {
+    return date.toDateString().substring(4);
+  }
+
+  static getDate(daysLaterNumber: number) {
+    const daysLater = dayInMilliseconds * daysLaterNumber;
+    const today = this.toDateStringFormatRFC(new Date());
+    const todayInMilliseconds = Date.parse(today);
+
+    const fullDate = new Date(todayInMilliseconds + daysLater).toJSON();
     const date = this.getJustDate(fullDate);
     return date;
   }
 
   static getDateAndWeekdays() {
-    return this.getSubsequentDays().map(dayIndex => ({
-      dayIndex,
-      date: this.getDate(),
-      weekday: daysOfTheWeek[dayIndex],
-    }));
+    const dateAndWeekdays: DateAndWeekdays[] = [];
+
+    this.getSubsequentDays().forEach((subsequentDay, index) => {
+      dateAndWeekdays.push({
+        dayIndex: subsequentDay,
+        date: this.getDate(index + 1),
+        weekday: daysOfTheWeek[subsequentDay],
+      });
+    });
+    return dateAndWeekdays;
+
+    // return this.getSubsequentDays().map(dayIndex => ({
+    //   dayIndex,
+    //   date: this.getDate(),
+    //   weekday: daysOfTheWeek[dayIndex],
+    // }));
   }
 }
 

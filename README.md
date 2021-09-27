@@ -107,9 +107,9 @@ Conteúdo do email: `link do projeto no github`
 ## Desafios bônus
 
 ### 1. Implementar um sistema de cache de requisições
-- [ ] Concluído Total
+- [x] Concluído Total
 - [ ] Concluído Parcial
-- [x] Não Concluído
+- [ ] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
 
@@ -122,8 +122,8 @@ Conteúdo do email: `link do projeto no github`
 
 ### 3. Adicionar suporte para mais cidades
 - [ ] Concluído Total
-- [ ] Concluído Parcial
-- [x] Não Concluído
+- [x] Concluído Parcial
+- [ ] Não Concluído
 
 **GIF, screenshot ou video da funcionalidade aqui**
 
