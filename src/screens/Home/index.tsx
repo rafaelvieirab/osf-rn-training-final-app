@@ -1,13 +1,15 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { useQuery } from 'react-query';
 import ErrorContent from '../../components/ErrorContent';
 import Loading from '../../components/Loading';
 import MovieListItem from '../../components/MovieListItem';
 import SearchBar from '../../components/SearchBar';
 import SearchIconButton from '../../components/SearchIconButton';
+import { Movie } from '../../models/Movie';
 import { RootStackParamList } from '../../router/Router';
-import { getMovies, Movie } from '../../service';
+import { getMoviesAsync } from '../../service';
 import { colors } from '../../style';
 
 type Props = {
@@ -42,24 +44,22 @@ const styles = StyleSheet.create({
 });
 
 const Home = ({ navigation }: Props) => {
-  const [loading, setLoading] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [movieTitle, setMovieTitle] = useState('');
   const [movies, setMovies] = useState<Movie[]>([]);
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
-  const [error, setError] = useState(null);
+
+  const { data, isLoading, isError } = useQuery('todos', getMoviesAsync);
+
+  useEffect(() => {
+    if (data) {
+      setMovies(data);
+    }
+  }, [data]);
 
   const handleShowSearchBar = () => {
     setIsSearchOpen(!isSearchOpen);
   };
-
-  useEffect(() => {
-    setLoading(true);
-    getMovies()
-      .then(response => setMovies(response.data))
-      .catch(err => setError(err))
-      .finally(() => setLoading(false));
-  }, []);
 
   useEffect(() => {
     const filtereds = movies.filter(movie =>
@@ -68,11 +68,11 @@ const Home = ({ navigation }: Props) => {
     setFilteredMovies(filtereds);
   }, [movieTitle, movies]);
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
 
-  if (error) {
+  if (isError) {
     return <ErrorContent message="Não há filmes disponíveis no momento" />;
   }
 

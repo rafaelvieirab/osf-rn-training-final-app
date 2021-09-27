@@ -9,7 +9,7 @@ interface Session {
   time: string;
 }
 
-interface Room {
+export interface Room {
   name: string;
   sessions: Session[];
 }
